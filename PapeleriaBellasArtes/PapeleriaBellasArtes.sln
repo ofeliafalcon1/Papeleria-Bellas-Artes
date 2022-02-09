@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapeleriaBellasArtes", "PapeleriaBellasArtes\PapeleriaBellasArtes.csproj", "{50D291DF-9ECB-4A2F-B9FA-E5D2A9EF05B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapeleriaBellasArtes.Web", "PapeleriaBellasArtes.Web\PapeleriaBellasArtes.Web.csproj", "{6B9A11F3-2689-4C4E-87E1-23CCB06B1D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapeleriaBellasArtes.WebAdmin", "PapeleriaBellasArtes.WebAdmin\PapeleriaBellasArtes.WebAdmin.csproj", "{A4C037C2-C968-4E36-BC07-2B8B0AFA481B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapeleriaBellasArtes.Win", "PapeleriaBellasArtes.Win\PapeleriaBellasArtes.Win.csproj", "{0A9ADC6E-470B-4F00-BEDD-F5029D63BEC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapeleriaBellasArtes.BL", "PapeleriaBellasArtes.BL\PapeleriaBellasArtes.BL.csproj", "{6C21DD4E-DFD6-4F4F-B94E-160267AB53EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{50D291DF-9ECB-4A2F-B9FA-E5D2A9EF05B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50D291DF-9ECB-4A2F-B9FA-E5D2A9EF05B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50D291DF-9ECB-4A2F-B9FA-E5D2A9EF05B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50D291DF-9ECB-4A2F-B9FA-E5D2A9EF05B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9A11F3-2689-4C4E-87E1-23CCB06B1D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9A11F3-2689-4C4E-87E1-23CCB06B1D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9A11F3-2689-4C4E-87E1-23CCB06B1D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9A11F3-2689-4C4E-87E1-23CCB06B1D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C037C2-C968-4E36-BC07-2B8B0AFA481B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C037C2-C968-4E36-BC07-2B8B0AFA481B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C037C2-C968-4E36-BC07-2B8B0AFA481B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C037C2-C968-4E36-BC07-2B8B0AFA481B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9ADC6E-470B-4F00-BEDD-F5029D63BEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9ADC6E-470B-4F00-BEDD-F5029D63BEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9ADC6E-470B-4F00-BEDD-F5029D63BEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9ADC6E-470B-4F00-BEDD-F5029D63BEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C21DD4E-DFD6-4F4F-B94E-160267AB53EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C21DD4E-DFD6-4F4F-B94E-160267AB53EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C21DD4E-DFD6-4F4F-B94E-160267AB53EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C21DD4E-DFD6-4F4F-B94E-160267AB53EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
