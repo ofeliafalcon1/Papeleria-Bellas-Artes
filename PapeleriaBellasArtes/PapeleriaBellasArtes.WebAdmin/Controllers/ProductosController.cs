@@ -10,10 +10,12 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
     public class ProductosController : Controller
     {
         ProductosBL _productosBl;
+        CategoriaBL _categoriasBL;
 
         public ProductosController()
         {
             _productosBl = new ProductosBL();
+            _categoriasBL = new CategoriaBL();
         }
 
         // GET: Productos
@@ -26,7 +28,10 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
 
         public ActionResult Crear()
         {
-            var nuevoProducto = new Producto(); 
+            var nuevoProducto = new Producto();
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto); 
         }
