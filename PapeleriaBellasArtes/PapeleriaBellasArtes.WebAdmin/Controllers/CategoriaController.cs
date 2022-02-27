@@ -35,8 +35,17 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Crear(Categoria categoria)
         {
-            _categoriasBL.GuardarCategoria(categoria);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid) //ModelState revisa y compara los atributos de la clase categoria
+            {
+                if(categoria.Descripcion != categoria.Descripcion.Trim())//Trim es una funcion que detecta si hay espacios innecesarios en el texto
+                {
+                    ModelState.AddModelError("Descripcion", "La descripción no debe contener espacios al inicio ni al final");
+                    return View(categoria);
+                }
+                _categoriasBL.GuardarCategoria(categoria);
+                return RedirectToAction("Index");
+            }
+            return View(categoria);
         }
 
         public ActionResult Editar(int id)
