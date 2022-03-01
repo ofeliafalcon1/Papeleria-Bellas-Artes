@@ -39,8 +39,20 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Crear(Producto producto)
         {
-            _productosBl.GuardarProducto(producto);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    return View(producto);
+                }
+                _productosBl.GuardarProducto(producto);
+                return RedirectToAction("Index");
+            }
+
+            var categorias = _categoriasBL.ObtenerCategorias();//Enviamos a la Lista de Categorias
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
+            return View(producto);
         } 
 
         public ActionResult Editar(int id)
@@ -55,11 +67,19 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Editar(Producto producto)
         {
-
-            _productosBl.GuardarProducto(producto);
-
+            if (producto.CategoriaId == 0)
+            {
+                ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                return View(producto);
+            }
+            _productosBl.GuardarProducto(producto); 
             return RedirectToAction("Index");
         }
+
+        var categorias = _categoriasBL.ObtenerCategorias();//Enviamos a la Lista de Categorias
+        ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
+        return View(producto);
+   
 
         public ActionResult Detalle(int id)
         {
