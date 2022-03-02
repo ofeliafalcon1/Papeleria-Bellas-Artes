@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace PapeleriaBellasArtes.WebAdmin.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         ProductosBL _productosBl;
@@ -31,13 +32,13 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto); 
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto)
+        public ActionResult Crear(Producto producto, HttpPostedFile imagen)
         {
             if (ModelState.IsValid)
             {
@@ -45,6 +46,11 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
                 {
                     ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
                     return View(producto);
+                }
+
+                if(imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
                 }
                 _productosBl.GuardarProducto(producto);
                 return RedirectToAction("Index");
@@ -65,21 +71,28 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
         {
-            if (producto.CategoriaId == 0)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
-                return View(producto);
-            }
-            _productosBl.GuardarProducto(producto); 
-            return RedirectToAction("Index");
-        }
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    return View(producto);
+                }
 
-        var categorias = _categoriasBL.ObtenerCategorias();//Enviamos a la Lista de Categorias
-        ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
-        return View(producto);
-   
+                if (imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+                _productosBl.GuardarProducto(producto);
+                return RedirectToAction("Index");
+            }
+
+            var categorias = _categoriasBL.ObtenerCategorias();//Enviamos a la Lista de Categorias
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
+            return View(producto);
+        }
 
         public ActionResult Detalle(int id)
         {
@@ -102,6 +115,14 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
 
 
             return RedirectToAction("Index");
+        }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)//Funcion guardar imagen
+        {
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+
+            return "/Imagenes/" + imagen.FileName;
         }
     }
 }
