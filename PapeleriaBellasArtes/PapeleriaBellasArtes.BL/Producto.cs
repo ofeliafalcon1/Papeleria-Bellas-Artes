@@ -25,6 +25,7 @@ namespace PapeleriaBellasArtes.BL
         [Required(ErrorMessage = "Ingrese el precio")]//Validaciones para el precio
         [Range(0, 1000, ErrorMessage = "Ingrese un precio entre 0 y 100")]
         public double Precio { get; set; }
+        public int CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
 
@@ -32,6 +33,5 @@ namespace PapeleriaBellasArtes.BL
         public string UrlImagen { get; set; }
 
         public bool Activo { get; set; }
-        public object CategoriaId { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto, HttpPostedFile imagen)
+        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
             var categorias = _categoriasBL.ObtenerCategorias();//Enviamos a la Lista de Categorias
             ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
             return View(producto);
-        } 
+        }
 
         public ActionResult Editar(int id)
         {
