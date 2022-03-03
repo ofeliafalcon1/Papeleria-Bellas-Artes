@@ -7,21 +7,22 @@ using System.Web.Mvc;
 
 namespace PapeleriaBellasArtes.WebAdmin.Controllers
 {
-    public class CategoriaController : Controller
+    [Authorize]
+    public class CategoriasController : Controller
     {
-        CategoriaBL _categoriasBL;
+        CategoriasBL _categoriasBL;
 
-        public CategoriaController ()
+        public CategoriasController ()
         {
-            _categoriasBL = new CategoriaBL();
+            _categoriasBL = new CategoriasBL();
         }
 
-        // GET: Categoria
+        // GET: Categorias
         public ActionResult Index()
         {
-            var listadeCategoria = _categoriasBL.ObtenerCategorias();
+            var listadeCategorias = _categoriasBL.ObtenerCategorias();
 
-            return View(listadeCategoria);
+            return View(listadeCategorias);
 
         }
 
@@ -73,9 +74,9 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
 
         public ActionResult Detalle(int id)
         {
-            var producto = _categoriasBL.ObtenerCategoria(id);
+            var categoria = _categoriasBL.ObtenerCategoria(id);
 
-            return View(producto);
+            return View(categoria);
         }
 
         public ActionResult Eliminar(int id)

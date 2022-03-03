@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PapeleriaBellasArtes.BL
 {
-      public class CategoriaBL
+      public class CategoriasBL
     {
         Contexto _contexto; 
         public List<Categoria>ListadeCategorias { get; set; }
        
 
-        public CategoriaBL()
+        public CategoriasBL()
         {
             _contexto = new Contexto();
             ListadeCategorias = new List<Categoria>();

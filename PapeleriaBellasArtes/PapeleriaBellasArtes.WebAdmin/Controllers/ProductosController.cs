@@ -11,12 +11,12 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
     public class ProductosController : Controller
     {
         ProductosBL _productosBl;
-        CategoriaBL _categoriasBL;
+        CategoriasBL _categoriasBL;
 
         public ProductosController()
         {
             _productosBl = new ProductosBL();
-            _categoriasBL = new CategoriaBL();
+            _categoriasBL = new CategoriasBL();
         }
 
         // GET: Productos
@@ -44,7 +44,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
             {
                 if (producto.CategoriaId == 0)
                 {
-                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
                     return View(producto);
                 }
 
@@ -77,7 +77,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
             {
                 if (producto.CategoriaId == 0)
                 {
-                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
                     return View(producto);
                 }
 
