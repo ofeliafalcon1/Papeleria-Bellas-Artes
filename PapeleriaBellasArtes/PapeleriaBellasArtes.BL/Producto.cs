@@ -26,7 +26,6 @@ namespace PapeleriaBellasArtes.BL
         [Range(0, 1000, ErrorMessage = "Ingrese un precio entre 0 y 100")]
         public double Precio { get; set; }
         public int CategoriaId { get; set; }
-
         public Categoria Categoria { get; set; }
 
         [Display(Name = "Imagen")]//Para modificar los nombres en la presentacion y no afecta la base de datos
