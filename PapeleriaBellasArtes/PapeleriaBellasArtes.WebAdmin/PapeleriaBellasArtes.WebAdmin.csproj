@@ -169,12 +169,11 @@
     <Content Include="Views\Productos\Editar.cshtml" />
     <Content Include="Views\Productos\Detalle.cshtml" />
     <Content Include="Views\Productos\Eliminar.cshtml" />
+    <Content Include="Views\Categorias\Editar.cshtml" />
+    <Content Include="Views\Categorias\Detalle.cshtml" />
+    <Content Include="Views\Categorias\Eliminar.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
-    <Content Include="Views\Categoria\Editar.cshtml" />
-    <Content Include="Views\Categoria\Detalle.cshtml" />
-    <Content Include="Views\Categoria\Eliminar.cshtml" />
-    <Content Include="Views\Categoria\Index.cshtml" />
-    <Content Include="Views\Categoria\Crear.cshtml" />
+    <Content Include="Views\Categorias\Crear.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
