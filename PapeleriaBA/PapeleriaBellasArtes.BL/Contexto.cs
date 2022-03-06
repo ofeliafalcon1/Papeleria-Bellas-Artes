@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PapeleriaBellasArtes.BL
 {
-    public class Contexto: DbContext
+    public class Contexto: DbContext //DBcontext es una funcion del EntityFramework
     {
         public Contexto(): base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" +
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\PapeleriaBellasArtesDB.mdf")

@@ -14,7 +14,7 @@ namespace PapeleriaBellasArtes.BL
 
         public ProductosBL()
         {
-            _contexto = new Contexto();
+            _contexto = new Contexto(); //Inicializar contexto en el constructor
             ListadeProductos = new List<Producto>();
         }
 
