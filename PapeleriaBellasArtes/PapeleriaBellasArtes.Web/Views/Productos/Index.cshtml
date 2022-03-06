@@ -1,26 +1,25 @@
 ﻿@model List<PapeleriaBellasArtes.BL.Producto>
-
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Productos</h2>
 
-
 <table class="table table-bordered table-hover">    
     <thead>  
         <tr>
             <th>
-                Codigo
+                Código
             </th>
             <th>
-                Descripcion
+                Descripción
             </th>
             <th>
                 Precio
             </th>
         </tr>
-    </thead>                      
+    </thead>    
+                      
     @foreach (var producto in Model)
     {
         //filas que se repiten dentro del foreach//
@@ -29,6 +28,7 @@
             <td>@producto.Descripcion</td>
             <td>@producto.Precio</td>
         </tr>
+
     }
    
 </table>
