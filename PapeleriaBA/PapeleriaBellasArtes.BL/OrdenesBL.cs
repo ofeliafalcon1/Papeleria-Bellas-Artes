@@ -38,6 +38,7 @@ namespace PapeleriaBellasArtes.BL
         {
             var ordenDetalle = _contexto.OrdenDetalle
                  .Include("Producto").FirstOrDefault(p => p.Id == id);
+
             return ordenDetalle;
         }
 
