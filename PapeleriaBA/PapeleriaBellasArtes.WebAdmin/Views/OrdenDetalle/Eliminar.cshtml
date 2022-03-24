@@ -6,17 +6,17 @@
 
 <h2>Eliminar</h2>
 
-<h3>&iquest;¿Estás seguro que deseas eliminar este registro?</h3>
+<h3>&iquest;Esta Seguro que desea Eliminar este Registro?</h3>
 <div>
-    <h4>OrdenDetalle</h4>
+    <h4>Orden Detalle</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-           Orden No: 
+            Orden No: 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrdenId)
+           @Html.DisplayFor(model => model.OrdenId)
         </dd>
 
         <dt>
@@ -56,11 +56,11 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(model => model.OrdenId)
+        @Html.HiddenFor(model =>model.OrdenId)
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Regresar a la Lista", "Index", new { id= Model.OrdenId})
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a Lista", "Index", new { id = Model.OrdenId } )
         </div>
     }
 </div>

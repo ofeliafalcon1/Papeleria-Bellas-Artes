@@ -9,20 +9,29 @@ namespace PapeleriaBellasArtes.BL
 {
     public class Cliente
     {
+        public Cliente()
+        {
+            Activo = true;
+        }
+
+        public int Id { get; set; }
+
         [Display(Name = "Nombre")]
-        [Required(ErrorMessage ="Ingrese el nombre del cliente.")]
-        [MinLength(20, ErrorMessage ="Ingrese un máximo de 20 carácteres")]
+        [Required(ErrorMessage = "Ingrese un Nombre")]//Validaciones para Nombre
+        [MaxLength(20, ErrorMessage = "Ingrese un máximo de 20 carácteres")]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage ="Ingrese el teléfono por favor.")]
-        [MinLength(8, ErrorMessage = "El teléfono debe ser de 8 digitos.")]
-        [MaxLength(8, ErrorMessage = "El teléfono debe ser de 8 digitos.")]
+        [Required(ErrorMessage = "Ingrese el Numero")]//Validaciones para el Numero
+        [MinLength(8, ErrorMessage = "El Telefono debe ser de 8 digitos")]
+        [MaxLength(8, ErrorMessage = "El Telefono debe ser de 8 digitos")]
         public string Telefono { get; set; }
-
-        [Required(ErrorMessage = "Ingrese la direccion")]
-        [MinLength(3, ErrorMessage = "Ingrese mínimo 3 caracteres")]
+        
+        
+        [Required(ErrorMessage = "Ingrese la Dirección")]
+        [MinLength(3, ErrorMessage = "Ingrese minímo 3 caracteres")]
         public string Direccion { get; set; }
 
         public bool Activo { get; set; }
     }
+
 }

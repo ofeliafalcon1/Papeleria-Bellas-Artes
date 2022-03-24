@@ -11,7 +11,6 @@ namespace PapeleriaBellasArtes.BL
         Contexto _contexto;
         public List<Orden> ListadeOrdenes { get; set; }
 
-
         public OrdenesBL()
         {
             _contexto = new Contexto();
@@ -29,7 +28,9 @@ namespace PapeleriaBellasArtes.BL
 
         public List<OrdenDetalle> ObtenerOrdenDetalle(int ordenId)
         {
-            var listadeOrdenesDetalle = _contexto.OrdenDetalle.Include("Producto").Where(o => o.OrdenId == ordenId).ToList();
+            var listadeOrdenesDetalle = _contexto.OrdenDetalle
+                .Include ("Producto")
+                .Where(o => o.OrdenId == ordenId).ToList();
 
             return listadeOrdenesDetalle;
         }
@@ -37,7 +38,7 @@ namespace PapeleriaBellasArtes.BL
         public OrdenDetalle ObtenerOrdenDetallePorId(int id)
         {
             var ordenDetalle = _contexto.OrdenDetalle
-                 .Include("Producto").FirstOrDefault(p => p.Id == id);
+            .Include("Producto").FirstOrDefault(p => p.Id == id);
 
             return ordenDetalle;
         }
@@ -45,22 +46,25 @@ namespace PapeleriaBellasArtes.BL
         public Orden ObtenerOrden(int id)
         {
             var orden = _contexto.Ordenes
-                .Include("Cliente").FirstOrDefault(p => p.Id == id);
+            .Include("Cliente").FirstOrDefault(p => p.Id == id);
 
             return orden;
         }
 
         public void GuardarOrden(Orden orden)
         {
+
             if(orden.Id == 0)
             {
-                _contexto.Ordenes.Add(orden);
-            }else
+              _contexto.Ordenes.Add(orden);
+            }
+            else
             {
                 var ordenExistente = _contexto.Ordenes.Find(orden.Id);
                 ordenExistente.ClienteId = orden.ClienteId;
                 ordenExistente.Activo = orden.Activo;
             }
+
             _contexto.SaveChanges();
         }
 

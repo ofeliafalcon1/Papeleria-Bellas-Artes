@@ -10,12 +10,12 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
     public class OrdenesController : Controller
     {
         OrdenesBL _ordenesBL;
-        ClientesBL _clientesBL;
+        ClienteBL _clienteBL;
 
         public OrdenesController()
         {
             _ordenesBL = new OrdenesBL();
-            _clientesBL = new ClientesBL();
+            _clienteBL = new ClienteBL();
         }
 
         // GET: Ordenes
@@ -29,7 +29,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevaOrden = new Orden();
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clienteBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
@@ -41,18 +41,20 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(orden.ClienteId == 0)
+                if (orden.ClienteId == 0)
                 {
-                    ModelState.AddModelError("ClienteId", "Seleccione un cliente.");
+                    ModelState.AddModelError("ClienteId", "Seleccione un Cliente");
+
                     return View(orden);
                 }
 
                 _ordenesBL.GuardarOrden(orden);
 
                 return RedirectToAction("Index");
+
             }
 
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clienteBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
@@ -62,7 +64,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
             var orden = _ordenesBL.ObtenerOrden(id);
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clienteBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
@@ -74,17 +76,19 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(orden.ClienteId == 0)
+                if (orden.ClienteId == 0)
                 {
-                    ModelState.AddModelError("ClienteId", "Seleccione un cliente");
+                    ModelState.AddModelError("ClienteId", "Seleccione un Cliente");
+
                     return View(orden);
                 }
 
                 _ordenesBL.GuardarOrden(orden);
+
                 return RedirectToAction("Index");
             }
 
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clienteBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
@@ -99,4 +103,7 @@ namespace PapeleriaBellasArtes.WebAdmin.Controllers
         }
 
     }
+
 }
+
+
