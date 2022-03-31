@@ -1,0 +1,106 @@
+﻿@model List<PapeleriaBellasArtes.BL.Producto>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+ <!-- Banner Starts Here -->
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+            <div class="text-content">
+                <h4>Donde encontraras la mayor variedad</h4>
+                <h2>Bienvenidos a Papeleria Bellas Artes</h2>
+            </div>
+        </div>
+        <div class="banner-item-02">
+            <div class="text-content">
+                <h4>Al mejor precio</h4>
+                <h2>Tenemos los mejores precios del mercado</h2>
+            </div>
+        </div>
+        <div class="banner-item-03">
+            <div class="text-content">
+                <h4>De mayor calidad</h4>
+                <h2>Tenemos las mejores marcas del mercado</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Productos en oferta</h2>
+                </div>
+            </div>
+            @foreach (var producto in Model
+                .Where(r=>r.Categoria.Descripcion== "Cuadernos y Libretas")
+                .Take(4)
+                .OrderBy(r=>Guid.NewGuid())
+                )
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="@(ViewBag.adminWebSiteUrl + producto.UrlImagen)" alt=""></a>
+                        <div class="down-content">
+                            <h6>L. @producto.Precio</h6>
+                            <p>@producto.Descripcion</p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>No somos solo una papelería, somos tu familia</p>
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="best-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Todos los productos</h2>
+                </div>
+            </div>
+            @foreach (var producto in Model)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="@(ViewBag.adminWebSiteUrl + producto.UrlImagen)" alt=""></a>
+                        <div class="down-content">
+                            <h6>L. @producto.Precio</h6>
+                            <p>@producto.Descripcion</p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
