@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace PapeleriaBellasArtes.WebAdmin.Controllers
 {
+    [Authorize]
     public class ClientesController : Controller
     {
         ClienteBL _clienteBl;

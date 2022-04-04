@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace PapeleriaBellasArtes.WebAdmin.Controllers
 {
-    
+    [Authorize]
     public class ProductosController : Controller
     {
         ProductosBL _productosBl;
